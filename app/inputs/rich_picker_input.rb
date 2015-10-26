@@ -58,10 +58,8 @@ private
       def javascript
         %Q{
             <script>
-              $(function(){
-                $('##{input_html_options[:id]}_input a').click(function(e){
+              $(document).on('click', '##{input_html_options[:id]}_input a', function(e){
                   e.preventDefault(); assetPicker.showFinder('##{input_html_options[:id]}', #{editor_options.to_json})
-                });
               });
             </script>
         }.html_safe
